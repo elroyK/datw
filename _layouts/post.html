@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div id="post">
+    <div id="post-header">
+        <img src="{{ page.photo }}" alt="">
+        <div id="post-metas">
+
+            {%- assign date_format = site.minima.date_format | default: "%-d %b '%y" -%}
+            <h3>{{ page.date | date: date_format }}</h3>
+            <h3>{{ page.categories }}</h3>
+        </div>
+        <h1 id="post-title">{{ page.title | escape }}</h1>
+        <p id="excerpt">
+            {{ page.excerpt }}
+        </p>
+    </div>
+    <div id="post-content">
+        {% if page.content %}
+            {{ page.content | markdownify }}
+        {% endif %}
+    </div>
+</div>
